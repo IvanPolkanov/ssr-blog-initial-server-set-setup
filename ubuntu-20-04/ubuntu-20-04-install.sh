@@ -1,12 +1,5 @@
 #!/bin/bash
-sudo apt install ufw
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
-sudo ufw allow ssh
-sudo ufw disable
-sudo ufw enable
-sudo ufw status verbose
-sudo ufw allow http
-sudo ufw allow https
-sudo ufw allow 443
-sudo ufw allow 443
+APP_ROOT=$(dirname $(dirname $(readlink -fm $0)))
+
+chmod +x ${APP_ROOT}/common-utils/ufw-install.sh
+bash ${APP_ROOT}/common-utils/ufw-install.sh
